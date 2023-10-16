@@ -1,0 +1,38 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}Sản phẩm{% endblock title %}
+{% block main-content %}
+
+    <div class="container">
+        <div class="row flex justify-content-between">
+            <div class="img2 col-lg-5 mt-5">
+                <img src="{{product.product_image.url}}" class="image col-xs-6 col-sm-12 col-lg-12 mt-3
+                text-sm-center w-100 h-100" alt="">
+            </div>
+            <div class="productdetail col-lg-5">
+                <h1 style="font-family: Georgia; font-size: 50px; padding-top: 20px">{{product.title}}</h1>
+                <h5>VND {{product.discounted_price}}/-                <small class="text-decoration-line-through text-muted fa-5
+                "><del>{{product.selling_price}}</del></small></h5>
+
+                <br><h4>Thông tin sản phẩm</h4>
+                <ul class="fs-12" style="font-family: Rajdhani;">
+                    <li>{{product.description}}</li>
+                </ul>
+                <ul class="fs-12" style="font-family: Rajdhani;">
+                    <li>{{product.composition}}</li>
+                </ul>
+                <ul class="fs-12" style="font-family: Rajdhani;">
+                    <li>{{product.prodapp}}</li>
+                </ul>
+                <div class="button row flex" style="font-family: Rajdhani;">
+                    <button type="submit" class="d-grid gap-2 btn1 btn btn-danger
+                    p-1 m-1 btn-lg text-decoration-none text-while">Thêm vào giỏ hàng</button>
+                    <div class="btn btn-dark p-1 m-1 btn-lg">
+                        <a href="#" class="text-decoration-none text-white">Mua ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock main-content %}
