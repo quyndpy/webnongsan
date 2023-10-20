@@ -26,6 +26,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/">Trang chủ</a>
             </li>
@@ -47,15 +48,16 @@
             </li>
           </ul>
           <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 420px">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
         </div>
+        {% if request.user.is_authenticated %}
         <ul class = "navbar-nav me-auto mb-2 mb-lg-0">
             <li class = "nav-item dropdown mx-2">
               <a class="nav-link dropdown-toggle text-white" href="#"
               id="profileDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false"> <i class="bi bi-card-list"> </i> </a>
+              aria-expanded="false"> {{request.user}} </a>
               <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                 <li> <a class="dropdown-item" href="{% url 'profile' %}"> Hồ sơ </a> </li>
                 <li> <a class="dropdown-item" href="#"> Đơn hàng</a> </li>
@@ -64,17 +66,18 @@
               </ul>
             </li>
             <li class="nav-item mx-2">
-                <a href="#" class="nav-link text-white">Giỏ hàng 4</a>
+                <a href="{% url 'showcart' %}" class="nav-link text-white">Giỏ hàng 4</a>
             </li>
             <li class="nav-item mx-2">
                 <a href="#" class="nav-link text-white">Yêu thích</a>
             </li>
-            <li class="nav-item mx-2">
-                <a href="{% url 'login' %}" class="nav-link text-white">Đăng nhập</a>
-            </li>
-            <li class="nav-item mx-2">
-                <a href="{% url 'customerregistration' %}" class="nav-link text-white">Đăng ký</a>
-            </li>
+            {% else %}
+
+                <a href="{% url 'login' %}" class="nav-link text-white" style="padding-right: 25px">Đăng nhập</a>
+                <a href="{% url 'customerregistration' %}" class="nav-link text-white" style="padding-right: 70px">Đăng ký</a>
+
+            {% endif %}
+
         </ul>
       </div>
     </nav>
