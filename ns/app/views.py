@@ -1,12 +1,14 @@
+import razorpay
 from django.db.models import Count
 from django.http import JsonResponse
 
 from django.shortcuts import render, redirect
 from django.views import View
-from .models import Product, Customer, Cart, Payment
+from .models import Product, Customer, Cart
 from .forms import CustomerRegistrationForm, CustomerProfileForm
 from django.contrib import messages
 from django.db.models import Q
+from django.conf import settings
 
 # Create your views here.
 def home(request):
@@ -114,7 +116,7 @@ class checkout(View):
             value = p.quantity * p.product.discounted_price
             famount = famount + value
         totalamount = famount + 15
-        return render(request,'app/checkout.html', locals())
+        return render(request, 'app/checkout.html', locals())
 
 def plus_cart(request):
     if request.method == 'GET':
@@ -135,6 +137,9 @@ def plus_cart(request):
             'totalamount': totalamount
         }
         return JsonResponse(data)
+
+
+
 
 def minus_cart(request):
     if request.method == 'GET':
@@ -173,5 +178,4 @@ def remove_cart(request):
             'totalamount': totalamount
         }
         return JsonResponse(data)
-
 

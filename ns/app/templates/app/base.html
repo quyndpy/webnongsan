@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css'%}"/>
     <link rel="stylesheet" href="{% static 'app/css/all.min.css'%}" />
     <link rel="stylesheet" href="{% static 'app/css/style.css'%}"/>
-
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <title>Vườn nông sản | {% block title %}{% endblock title %} </title>
 </head>
 <body>
@@ -88,7 +88,7 @@
 
     {% block main-content %}{% endblock main-content %}
 
-
+    {% block payment-gateway %} {% endblock payment-gateway %}
 
 
     <footer class="container-fluid fixed-bottom bg-success text-center p-2 mt-5">
