@@ -28,19 +28,19 @@
 
 {% endblock banner_slider %}
 {% block information %}
-<div class="container">
-    <div class="row bg-success text-center p-5 text-while border-bottom shadow">
-        <h1>Sản phẩm</h1>
-        <small class="fs-5">
-            Sản phẩm chất lượng cao
-        </small>
-    </div>
-</div>
+<!--<div class="container">-->
+<!--    <div class="row bg-success text-center p-5 text-while border-bottom shadow">-->
+<!--        <h1>Sản phẩm</h1>-->
+<!--        <small class="fs-5">-->
+<!--            Sản phẩm chất lượng cao-->
+<!--        </small>-->
+<!--    </div>-->
+<!--</div>-->
 {% endblock information %}
 
 {% block main-content %}
     <div class="container">
-        <h2 class="text-center" style="padding-top: 22px">Danh mục sản phẩm</h2>
+        <h2 class="text-center " style="padding-top: 22px">Danh mục sản phẩm</h2>
         <br><br>
         <div class="row container">
             <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
@@ -50,7 +50,7 @@
                 <div class="goodnesssec buttermilk smbg">
                     <a href="{% url 'category' 'HDD' %}">
                         <div class="goodnessseccont text-center">
-                            <img src="{% static 'app/images/product/hat_macca.png' %}" class="img-responsive" alt="">
+                            <img src="{% static 'app/images/banner/hdd.png' %}" class="img-responsive" alt="">
                             <p class="mlkpro">Hạt Dinh Dưỡng</p>
                         </div>
                     </a>
@@ -63,7 +63,7 @@
                 <div class="goodnesssec buttermilk curdbgpro">
                     <a href="{% url 'category' 'RCQ' %}">
                         <div class="goodnessseccont text-center">
-                            <img src="{% static 'app/images/product/hat_sen.png' %}" class="img-responsive" alt="">
+                            <img src="{% static 'app/images/banner/rcq.png' %}" class="img-responsive" alt="">
                             <p class="mlkpro">Rau Củ Quả</p>
                         </div>
                     </a>
@@ -76,7 +76,7 @@
                 <div class="goodnesssec buttermilk buttermilk">
                     <a href="{% url 'category' 'TTD' %}">
                         <div class="goodnessseccont text-center">
-                            <img src="{% static 'app/images/product/hat_bi.png' %}" class="img-responsive" alt="">
+                            <img src="{% static 'app/images/banner/ttm.png' %}" class="img-responsive" alt="">
                             <p class="mlkpro">Trà Thảo Dược</p>
                         </div>
                     </a>

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css'%}"/>
     <link rel="stylesheet" href="{% static 'app/css/all.min.css'%}" />
     <link rel="stylesheet" href="{% static 'app/css/style.css'%}"/>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
     <title>Vườn nông sản | {% block title %}{% endblock title %} </title>
 </head>
 <body>
@@ -18,7 +18,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <img src="{% static 'app/images/logo.png'%}" width="250" height="70"/>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,9 +47,9 @@
               <a class="nav-link text-while" href="{% url 'contact'%}">Liên hệ</a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 420px">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+          <form class="d-flex" role="search" action="/search">
+            <input class="form-control me-2" type="search" placeholder="Tìm kiếm" name="search" aria-label="Search" style="width: 420px">
+            <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
           </form>
         </div>
         {% if request.user.is_authenticated %}
@@ -66,10 +66,14 @@
               </ul>
             </li>
             <li class="nav-item mx-2">
-                <a href="{% url 'showcart' %}" class="nav-link text-white">Giỏ hàng 4</a>
+                <a href="{% url 'showcart' %}" class="nav-link text-white">
+                    <span class="badge bg-danger">{% if totalitem > 0%}{{totalitem}} {%endif%}</span>
+                    Giỏ hàng</a>
             </li>
             <li class="nav-item mx-2">
-                <a href="#" class="nav-link text-white">Yêu thích</a>
+                <a href="#" class="nav-link text-white">
+                    <span class="badge bg-danger">{% if wishitem > 0%} {{wishitem}} {%endif%}</span>
+                    <i class="fa fa-heart"></i></a>
             </li>
             {% else %}
 
