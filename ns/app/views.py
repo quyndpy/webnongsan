@@ -206,11 +206,11 @@ def payment_done(request):
     payment_id = request.GET.get('payment_id')
     cust_id = request.GET.get('cust_id')
     user = request.user
-    customer = Customer.object.get(id=cust_id)
-    cart = Cart.object.filter(user=user)
-    payment = Payment.object.get(payment_id=order_id)
+    customer = Customer.objects.get(id=cust_id)
+    cart = Cart.objects.filter(user=user)
+    payment = Payment.objects.get(payment_id=order_id)
     for c in cart:
-        OrderPlayced(user=user, customer=customer, product=c.prodcut, quantity=c.quantity, payment=payment).save()
+        OrderPlayced(user=user, customer=customer, product=c.product, quantity=c.quantity, payment=payment).save()
         c.delete()
     return redirect("orders")
 @login_required

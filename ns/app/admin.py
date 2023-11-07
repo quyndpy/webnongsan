@@ -27,7 +27,7 @@ class WishlistModelAdmin(admin.ModelAdmin):
 
 @admin.register(Payment)
 class OrderPlaceModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'amount']
+    list_display = ['id', 'user', 'amount', 'order_id', 'payment_status', 'payment_id', 'paid']
 
 @admin.register(OrderPlayced)
 class OrderPlaceModelAdmin(admin.ModelAdmin):
